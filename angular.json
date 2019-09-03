@@ -26,7 +26,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/"
+            ]
           },
           "configurations": {
             "production": {
@@ -112,6 +114,41 @@
             "production": {
               "devServerTarget": "drawpack:serve:production"
             }
+          }
+        }
+      }
+    },
+    "TWOD": {
+      "projectType": "library",
+      "root": "projects/twod",
+      "sourceRoot": "projects/twod/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/twod/tsconfig.lib.json",
+            "project": "projects/twod/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/twod/src/test.ts",
+            "tsConfig": "projects/twod/tsconfig.spec.json",
+            "karmaConfig": "projects/twod/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/twod/tsconfig.lib.json",
+              "projects/twod/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
