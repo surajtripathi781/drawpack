@@ -27,7 +27,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/assets/js/"
+              "src/assets/js/raphael.js"
             ]
           },
           "configurations": {
