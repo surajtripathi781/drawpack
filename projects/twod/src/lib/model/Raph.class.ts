@@ -3,7 +3,7 @@ export class Raph {
   public paper:any;
   constructor(p){
     let h:number=800;
-    let w:number=800;
+    let w:number=300;
     this.paper=Raphael('svg_paper',h,w);
   }
 

@@ -3,17 +3,24 @@ export class Paper extends Raph {
 
   constructor(p) {
     super(p);
-    this.drawAxis(10, 3, 1, 800, 800, true);
+    let h = this.paper.height, w = this.paper.width;
+    this.drawAxis(10, 3, 1, w, h, true);
   }
 
   public drawAxis(gridGap, offset, ratio, containerWidth, containerHeight, isDrawGrid) {
-    console.log("Width=",this.paper);
     let paperWidth = this.paper.width,
       paperHeight = this.paper.height,
       paperCenterOfX = containerWidth / 2,
       paperCenterOfY = containerHeight / 2;
+    this.paper.set();
+    this.drawXLine();
     this.drawXAxis(gridGap, offset, ratio, containerWidth, containerHeight, isDrawGrid, paperCenterOfY)
     this.drawYAxis(gridGap, offset, ratio, containerWidth, containerHeight, isDrawGrid, paperWidth, paperHeight, paperCenterOfX)
+    this.paper.setFinish();
+  }
+  private drawXLine() {
+    this.paper.path("M0 0L0 300");
+    this.paper.path("M30 0L0 300");
   }
 
   private drawXAxis(gridGap, offset, ratio, containerWidth, containerHeight, isDrawGrid, paperCenterOfY) {
